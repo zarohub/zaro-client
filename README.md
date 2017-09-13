@@ -1,2 +1,2 @@
 # zaro-client
-Official Zaro JavaScript client
+Official Zaro JavaScript Client

@@ -1,0 +1,33 @@
+{
+  "name": "zaro-client",
+  "version": "0.0.1",
+  "description": "Official Zaro JavaScript client",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --presets babel-preset-es2015,stage-2 --out-dir dist",
+    "browser-build": "browserify src/index.js -o browser-dist/zaro-client.js -t [ babelify --presets [ es2015 stage-2 ] ]",
+    "test": "mocha --compilers js:babel-register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zarohub/zaro-client.git"
+  },
+  "author": "Martin Adams",
+  "license": "MIT",
+  "homepage": "https://github.com/zarohub/zaro-client",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "graphql-tag": "^2.4.2",
+    "zentty-client": "0.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "isomorphic-unfetch": "^2.0.0",
+    "mocha": "^3.5.0"
+  }
+}
