@@ -52,6 +52,135 @@ class ZaroClient extends ZenttyClient {
     
     /**
      * params {
+     *   limit: Int
+     *   offset: Int
+     *   archived: Booelan
+     * }
+     */
+    getTeams (params = {}) {
+        return new Promise((fulfill, reject) => {
+            this.client.query({
+                fetchPolicy: 'network-only',
+                query: gql`
+                    query getTeams($offset: Int = 0, $limit: Int = 100, $archived: Boolean = false) {
+                    	getTeams(
+                    	    offset: $offset,
+                    	    limit: $limit,
+                    	    archived: $archived
+                    	) {
+                    	    result {
+                    	        total
+                    	        limit
+                    	        offset
+                    	    }
+                    	    items {
+                                _id
+                    		    name
+                    		    subscription {
+                    		        plan {
+                    		            _id
+                    		            name
+                    		            benefits {
+                    		                title
+                    		                description
+                    		                included
+                    		            }
+                    		            monthlyPrice
+                    		        }
+                    		        type
+                    		        status
+                    		    }
+                    		    archived
+                    		    createdAt
+                    		    teamMembers {
+                    		        user {
+                    		            _id
+                    		            username
+                    		            name
+                    		            active
+                    		            registered
+                    		            avatarUrl
+                    		        }
+                    		        dateJoined
+                    		        role
+                    		        status
+                    		    }
+                    		    teamMemberCount
+                    		    projectCount
+                    	    }
+                    	}
+                    }
+                `,
+                variables: {
+                    ...params
+                }
+            }).then(result => {
+                fulfill(result.data.getTeams);
+            }).catch(err => reject(err));
+        });
+    }
+    
+    /**
+     * params {
+     *  id: String!
+     * }
+     */
+    getTeam (params) {
+        return new Promise((fulfill, reject) => {
+            this.client.query({
+                fetchPolicy: 'network-only',
+                query: gql`
+                    query getTeam($id: String!) {
+                    	getTeam(
+                            id: $id
+                    	) {
+                            _id
+                		    name
+                		    subscription {
+                		        plan {
+                		            _id
+                		            name
+                		            benefits {
+                		                title
+                		                description
+                		                included
+                		            }
+                		            monthlyPrice
+                		        }
+                		        type
+                		        status
+                		    }
+                		    archived
+                		    createdAt
+                		    teamMembers {
+                		        user {
+                		            _id
+                		            username
+                		            name
+                		            active
+                		            registered
+                		            avatarUrl
+                		        }
+                		        dateJoined
+                		        role
+                		        status
+                		    }
+                		    teamMemberCount
+                		    projectCount
+                    	}
+                    }
+                `,
+                variables: {
+                    ...params
+                }
+            }).then(result => {
+                fulfill(result.data.getTeam);
+            }).catch(err => reject(err));
+        });
+    }
+    
+    /**
+     * params {
      *  name: String!
      * }
      */
