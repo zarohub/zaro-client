@@ -1,5 +1,4 @@
-//import ZenttyClient from 'zentty-client';
-import ZenttyClient from '../../../zentty/zentty-client/src';
+import ZenttyClient from 'zentty-client';
 import gql from 'graphql-tag';
 
 class ZaroClient extends ZenttyClient {
