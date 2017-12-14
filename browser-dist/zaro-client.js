@@ -18170,7 +18170,6 @@ var UploadHTTPFetchNetworkInterface = exports.UploadHTTPFetchNetworkInterface = 
             var request = _ref.request,
                 options = _ref.options;
 
-            //if (request.variables && request.variables._chunk) {
             var formData = new _isomorphicFormData2.default();
             formData.append('operationName', request.operationName || '');
 
@@ -18189,12 +18188,8 @@ var UploadHTTPFetchNetworkInterface = exports.UploadHTTPFetchNetworkInterface = 
             return fetch(this._uri, Object.assign({
                 method: 'POST',
                 body: formData,
-                credentials: true
+                credentials: 'include'
             }, options));
-            //}
-
-            // Standard fetch method fallback
-            //return super.fetchFromRemoteEndpoint({ request, options })
         }
     }]);
 
