@@ -4,6 +4,25 @@ import gql from 'graphql-tag';
 
 class ZaroClient extends ZenttyClient {
     
+    async emailSubscriptionSignup (params) {
+        const { data: { emailSubscriptionSignup: result }} = await this.client.mutate({
+            mutation: gql`
+                mutation emailSubscriptionSignup($name: String!, $email: String!, $interests: [EmailSubscriptionInterests]) {
+                	emailSubscriptionSignup(
+                	    name: $name,
+                	    email: $email,
+                	    interests: $interests
+                	)
+                }
+            `,
+            variables: {
+                ...params
+            }
+        });
+        
+        return result;
+    }
+    
     async getTeamMembers (params) {
         const { data: { getTeamMembers: teamMembers }} = await this.client.query({
             fetchPolicy: 'network-only',
