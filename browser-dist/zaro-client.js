@@ -9,11 +9,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n                query getTeamMembers($teamID: String!, $offset: Int = 0, $limit: Int = 100) {\n                \tgetTeamMembers(\n                \t    teamID: $teamID,\n                \t    offset: $offset,\n                \t    limit: $limit\n                \t) {\n                \t    result {\n                \t        total\n                \t        limit\n                \t        offset\n                \t    }\n                \t    items {\n                \t        user {\n                    \t\t    _id\n                    \t\t    username\n                    \t\t    name\n                    \t\t    active\n                    \t\t    registered\n                    \t\t    avatarUrl\n                \t        }\n                \t        dateJoined\n                \t        role\n                \t        status\n                \t    }\n                \t}\n                }\n            '], ['\n                query getTeamMembers($teamID: String!, $offset: Int = 0, $limit: Int = 100) {\n                \tgetTeamMembers(\n                \t    teamID: $teamID,\n                \t    offset: $offset,\n                \t    limit: $limit\n                \t) {\n                \t    result {\n                \t        total\n                \t        limit\n                \t        offset\n                \t    }\n                \t    items {\n                \t        user {\n                    \t\t    _id\n                    \t\t    username\n                    \t\t    name\n                    \t\t    active\n                    \t\t    registered\n                    \t\t    avatarUrl\n                \t        }\n                \t        dateJoined\n                \t        role\n                \t        status\n                \t    }\n                \t}\n                }\n            ']),
-    _templateObject2 = _taggedTemplateLiteral(['\n                query getTeams($offset: Int = 0, $limit: Int = 100, $archived: Boolean = false) {\n                \tgetTeams(\n                \t    offset: $offset,\n                \t    limit: $limit,\n                \t    archived: $archived\n                \t) {\n                \t    result {\n                \t        total\n                \t        limit\n                \t        offset\n                \t    }\n                \t    items {\n                            _id\n                \t\t    name\n                \t\t    subscription {\n                \t\t        plan {\n                \t\t            _id\n                \t\t            name\n                \t\t        }\n                \t\t        type\n                \t\t        status\n                \t\t    }\n                \t\t    archived\n                \t\t    createdAt\n                \t\t    getMembers(limit: 10) {\n                \t\t        result {\n                \t\t            total\n                \t\t        }\n                \t\t        items {\n                \t\t            user {\n                \t\t                _id\n                \t\t                username\n                \t\t                name\n                \t\t                active\n                \t\t                registered\n                \t\t                avatarUrl\n                \t\t            }\n                \t\t            dateJoined\n                \t\t            role\n                \t\t            status\n                \t\t        }\n                \t\t    }\n                \t\t    projectCount\n                \t    }\n                \t}\n                }\n            '], ['\n                query getTeams($offset: Int = 0, $limit: Int = 100, $archived: Boolean = false) {\n                \tgetTeams(\n                \t    offset: $offset,\n                \t    limit: $limit,\n                \t    archived: $archived\n                \t) {\n                \t    result {\n                \t        total\n                \t        limit\n                \t        offset\n                \t    }\n                \t    items {\n                            _id\n                \t\t    name\n                \t\t    subscription {\n                \t\t        plan {\n                \t\t            _id\n                \t\t            name\n                \t\t        }\n                \t\t        type\n                \t\t        status\n                \t\t    }\n                \t\t    archived\n                \t\t    createdAt\n                \t\t    getMembers(limit: 10) {\n                \t\t        result {\n                \t\t            total\n                \t\t        }\n                \t\t        items {\n                \t\t            user {\n                \t\t                _id\n                \t\t                username\n                \t\t                name\n                \t\t                active\n                \t\t                registered\n                \t\t                avatarUrl\n                \t\t            }\n                \t\t            dateJoined\n                \t\t            role\n                \t\t            status\n                \t\t        }\n                \t\t    }\n                \t\t    projectCount\n                \t    }\n                \t}\n                }\n            ']),
-    _templateObject3 = _taggedTemplateLiteral(['\n                query getTeam($id: String!) {\n                \tgetTeam(\n                        id: $id\n                \t) {\n                        _id\n            \t\t    name\n            \t\t    subscription {\n            \t\t        plan {\n            \t\t            _id\n            \t\t            name\n            \t\t        }\n            \t\t        type\n            \t\t        status\n            \t\t    }\n            \t\t    archived\n            \t\t    createdAt\n            \t\t    getMembers(limit: 10) {\n            \t\t        result {\n            \t\t            total\n            \t\t        }\n            \t\t        items {\n            \t\t            user {\n            \t\t                _id\n            \t\t                username\n            \t\t                name\n            \t\t                active\n            \t\t                registered\n            \t\t                avatarUrl\n            \t\t            }\n            \t\t            dateJoined\n            \t\t            role\n            \t\t            status\n            \t\t        }\n            \t\t    }\n            \t\t    projectCount\n                \t}\n                }\n            '], ['\n                query getTeam($id: String!) {\n                \tgetTeam(\n                        id: $id\n                \t) {\n                        _id\n            \t\t    name\n            \t\t    subscription {\n            \t\t        plan {\n            \t\t            _id\n            \t\t            name\n            \t\t        }\n            \t\t        type\n            \t\t        status\n            \t\t    }\n            \t\t    archived\n            \t\t    createdAt\n            \t\t    getMembers(limit: 10) {\n            \t\t        result {\n            \t\t            total\n            \t\t        }\n            \t\t        items {\n            \t\t            user {\n            \t\t                _id\n            \t\t                username\n            \t\t                name\n            \t\t                active\n            \t\t                registered\n            \t\t                avatarUrl\n            \t\t            }\n            \t\t            dateJoined\n            \t\t            role\n            \t\t            status\n            \t\t        }\n            \t\t    }\n            \t\t    projectCount\n                \t}\n                }\n            ']),
-    _templateObject4 = _taggedTemplateLiteral(['\n                mutation createTeam($name: String!) {\n                \tcreateTeam(\n                \t    name: $name\n                \t) {\n                \t\t_id\n            \t\t    name\n            \t\t    subscription {\n            \t\t        plan {\n            \t\t            _id\n            \t\t            name\n            \t\t        }\n            \t\t        type\n            \t\t        status\n            \t\t    }\n            \t\t    archived\n            \t\t    createdAt\n            \t\t    getMembers(limit: 10) {\n            \t\t        result {\n            \t\t            total\n            \t\t        }\n            \t\t        items {\n            \t\t            user {\n            \t\t                _id\n            \t\t                username\n            \t\t                name\n            \t\t                active\n            \t\t                registered\n            \t\t                avatarUrl\n            \t\t            }\n            \t\t            dateJoined\n            \t\t            role\n            \t\t            status\n            \t\t        }\n            \t\t    }\n            \t\t    projectCount\n                \t}\n                }\n            '], ['\n                mutation createTeam($name: String!) {\n                \tcreateTeam(\n                \t    name: $name\n                \t) {\n                \t\t_id\n            \t\t    name\n            \t\t    subscription {\n            \t\t        plan {\n            \t\t            _id\n            \t\t            name\n            \t\t        }\n            \t\t        type\n            \t\t        status\n            \t\t    }\n            \t\t    archived\n            \t\t    createdAt\n            \t\t    getMembers(limit: 10) {\n            \t\t        result {\n            \t\t            total\n            \t\t        }\n            \t\t        items {\n            \t\t            user {\n            \t\t                _id\n            \t\t                username\n            \t\t                name\n            \t\t                active\n            \t\t                registered\n            \t\t                avatarUrl\n            \t\t            }\n            \t\t            dateJoined\n            \t\t            role\n            \t\t            status\n            \t\t        }\n            \t\t    }\n            \t\t    projectCount\n                \t}\n                }\n            ']),
-    _templateObject5 = _taggedTemplateLiteral(['\n                mutation inviteTeamMember($teamID: String!, $userIdentifier: String!, $role: String!) {\n                \tinviteTeamMember(\n                \t    teamID: $teamID,\n                \t    userIdentifier: $userIdentifier,\n                \t    role: $role\n                \t)\n                }\n            '], ['\n                mutation inviteTeamMember($teamID: String!, $userIdentifier: String!, $role: String!) {\n                \tinviteTeamMember(\n                \t    teamID: $teamID,\n                \t    userIdentifier: $userIdentifier,\n                \t    role: $role\n                \t)\n                }\n            ']);
+var _templateObject = _taggedTemplateLiteral(['\n                mutation emailSubscriptionSignup($name: String!, $email: String!, $interests: [EmailSubscriptionInterests]) {\n                \temailSubscriptionSignup(\n                \t    name: $name,\n                \t    email: $email,\n                \t    interests: $interests\n                \t)\n                }\n            '], ['\n                mutation emailSubscriptionSignup($name: String!, $email: String!, $interests: [EmailSubscriptionInterests]) {\n                \temailSubscriptionSignup(\n                \t    name: $name,\n                \t    email: $email,\n                \t    interests: $interests\n                \t)\n                }\n            ']),
+    _templateObject2 = _taggedTemplateLiteral(['\n                query getTeamMembers($teamID: String!, $offset: Int = 0, $limit: Int = 100) {\n                \tgetTeamMembers(\n                \t    teamID: $teamID,\n                \t    offset: $offset,\n                \t    limit: $limit\n                \t) {\n                \t    result {\n                \t        total\n                \t        limit\n                \t        offset\n                \t    }\n                \t    items {\n                \t        user {\n                    \t\t    _id\n                    \t\t    username\n                    \t\t    name\n                    \t\t    active\n                    \t\t    registered\n                    \t\t    avatarUrl\n                \t        }\n                \t        dateJoined\n                \t        role\n                \t        status\n                \t    }\n                \t}\n                }\n            '], ['\n                query getTeamMembers($teamID: String!, $offset: Int = 0, $limit: Int = 100) {\n                \tgetTeamMembers(\n                \t    teamID: $teamID,\n                \t    offset: $offset,\n                \t    limit: $limit\n                \t) {\n                \t    result {\n                \t        total\n                \t        limit\n                \t        offset\n                \t    }\n                \t    items {\n                \t        user {\n                    \t\t    _id\n                    \t\t    username\n                    \t\t    name\n                    \t\t    active\n                    \t\t    registered\n                    \t\t    avatarUrl\n                \t        }\n                \t        dateJoined\n                \t        role\n                \t        status\n                \t    }\n                \t}\n                }\n            ']),
+    _templateObject3 = _taggedTemplateLiteral(['\n                query getTeams($offset: Int = 0, $limit: Int = 100, $archived: Boolean = false) {\n                \tgetTeams(\n                \t    offset: $offset,\n                \t    limit: $limit,\n                \t    archived: $archived\n                \t) {\n                \t    result {\n                \t        total\n                \t        limit\n                \t        offset\n                \t    }\n                \t    items {\n                            _id\n                \t\t    name\n                \t\t    subscription {\n                \t\t        plan {\n                \t\t            _id\n                \t\t            name\n                \t\t        }\n                \t\t        type\n                \t\t        status\n                \t\t    }\n                \t\t    archived\n                \t\t    createdAt\n                \t\t    getMembers(limit: 10) {\n                \t\t        result {\n                \t\t            total\n                \t\t        }\n                \t\t        items {\n                \t\t            user {\n                \t\t                _id\n                \t\t                username\n                \t\t                name\n                \t\t                active\n                \t\t                registered\n                \t\t                avatarUrl\n                \t\t            }\n                \t\t            dateJoined\n                \t\t            role\n                \t\t            status\n                \t\t        }\n                \t\t    }\n                \t\t    projectCount\n                \t    }\n                \t}\n                }\n            '], ['\n                query getTeams($offset: Int = 0, $limit: Int = 100, $archived: Boolean = false) {\n                \tgetTeams(\n                \t    offset: $offset,\n                \t    limit: $limit,\n                \t    archived: $archived\n                \t) {\n                \t    result {\n                \t        total\n                \t        limit\n                \t        offset\n                \t    }\n                \t    items {\n                            _id\n                \t\t    name\n                \t\t    subscription {\n                \t\t        plan {\n                \t\t            _id\n                \t\t            name\n                \t\t        }\n                \t\t        type\n                \t\t        status\n                \t\t    }\n                \t\t    archived\n                \t\t    createdAt\n                \t\t    getMembers(limit: 10) {\n                \t\t        result {\n                \t\t            total\n                \t\t        }\n                \t\t        items {\n                \t\t            user {\n                \t\t                _id\n                \t\t                username\n                \t\t                name\n                \t\t                active\n                \t\t                registered\n                \t\t                avatarUrl\n                \t\t            }\n                \t\t            dateJoined\n                \t\t            role\n                \t\t            status\n                \t\t        }\n                \t\t    }\n                \t\t    projectCount\n                \t    }\n                \t}\n                }\n            ']),
+    _templateObject4 = _taggedTemplateLiteral(['\n                query getTeam($id: String!) {\n                \tgetTeam(\n                        id: $id\n                \t) {\n                        _id\n            \t\t    name\n            \t\t    subscription {\n            \t\t        plan {\n            \t\t            _id\n            \t\t            name\n            \t\t        }\n            \t\t        type\n            \t\t        status\n            \t\t    }\n            \t\t    archived\n            \t\t    createdAt\n            \t\t    getMembers(limit: 10) {\n            \t\t        result {\n            \t\t            total\n            \t\t        }\n            \t\t        items {\n            \t\t            user {\n            \t\t                _id\n            \t\t                username\n            \t\t                name\n            \t\t                active\n            \t\t                registered\n            \t\t                avatarUrl\n            \t\t            }\n            \t\t            dateJoined\n            \t\t            role\n            \t\t            status\n            \t\t        }\n            \t\t    }\n            \t\t    projectCount\n                \t}\n                }\n            '], ['\n                query getTeam($id: String!) {\n                \tgetTeam(\n                        id: $id\n                \t) {\n                        _id\n            \t\t    name\n            \t\t    subscription {\n            \t\t        plan {\n            \t\t            _id\n            \t\t            name\n            \t\t        }\n            \t\t        type\n            \t\t        status\n            \t\t    }\n            \t\t    archived\n            \t\t    createdAt\n            \t\t    getMembers(limit: 10) {\n            \t\t        result {\n            \t\t            total\n            \t\t        }\n            \t\t        items {\n            \t\t            user {\n            \t\t                _id\n            \t\t                username\n            \t\t                name\n            \t\t                active\n            \t\t                registered\n            \t\t                avatarUrl\n            \t\t            }\n            \t\t            dateJoined\n            \t\t            role\n            \t\t            status\n            \t\t        }\n            \t\t    }\n            \t\t    projectCount\n                \t}\n                }\n            ']),
+    _templateObject5 = _taggedTemplateLiteral(['\n                mutation createTeam($name: String!) {\n                \tcreateTeam(\n                \t    name: $name\n                \t) {\n                \t\t_id\n            \t\t    name\n            \t\t    subscription {\n            \t\t        plan {\n            \t\t            _id\n            \t\t            name\n            \t\t        }\n            \t\t        type\n            \t\t        status\n            \t\t    }\n            \t\t    archived\n            \t\t    createdAt\n            \t\t    getMembers(limit: 10) {\n            \t\t        result {\n            \t\t            total\n            \t\t        }\n            \t\t        items {\n            \t\t            user {\n            \t\t                _id\n            \t\t                username\n            \t\t                name\n            \t\t                active\n            \t\t                registered\n            \t\t                avatarUrl\n            \t\t            }\n            \t\t            dateJoined\n            \t\t            role\n            \t\t            status\n            \t\t        }\n            \t\t    }\n            \t\t    projectCount\n                \t}\n                }\n            '], ['\n                mutation createTeam($name: String!) {\n                \tcreateTeam(\n                \t    name: $name\n                \t) {\n                \t\t_id\n            \t\t    name\n            \t\t    subscription {\n            \t\t        plan {\n            \t\t            _id\n            \t\t            name\n            \t\t        }\n            \t\t        type\n            \t\t        status\n            \t\t    }\n            \t\t    archived\n            \t\t    createdAt\n            \t\t    getMembers(limit: 10) {\n            \t\t        result {\n            \t\t            total\n            \t\t        }\n            \t\t        items {\n            \t\t            user {\n            \t\t                _id\n            \t\t                username\n            \t\t                name\n            \t\t                active\n            \t\t                registered\n            \t\t                avatarUrl\n            \t\t            }\n            \t\t            dateJoined\n            \t\t            role\n            \t\t            status\n            \t\t        }\n            \t\t    }\n            \t\t    projectCount\n                \t}\n                }\n            ']),
+    _templateObject6 = _taggedTemplateLiteral(['\n                mutation inviteTeamMember($teamID: String!, $userIdentifier: String!, $role: String!) {\n                \tinviteTeamMember(\n                \t    teamID: $teamID,\n                \t    userIdentifier: $userIdentifier,\n                \t    role: $role\n                \t)\n                }\n            '], ['\n                mutation inviteTeamMember($teamID: String!, $userIdentifier: String!, $role: String!) {\n                \tinviteTeamMember(\n                \t    teamID: $teamID,\n                \t    userIdentifier: $userIdentifier,\n                \t    role: $role\n                \t)\n                }\n            ']);
 
 var _zenttyClient = require('zentty-client');
 
@@ -47,26 +48,25 @@ var ZaroClient = function (_ZenttyClient) {
     }
 
     _createClass(ZaroClient, [{
-        key: 'getTeamMembers',
+        key: 'emailSubscriptionSignup',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(params) {
-                var _ref2, teamMembers;
+                var _ref2, result;
 
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _context.next = 2;
-                                return this.client.query({
-                                    fetchPolicy: 'network-only',
-                                    query: (0, _graphqlTag2.default)(_templateObject),
+                                return this.client.mutate({
+                                    mutation: (0, _graphqlTag2.default)(_templateObject),
                                     variables: _extends({}, params)
                                 });
 
                             case 2:
                                 _ref2 = _context.sent;
-                                teamMembers = _ref2.data.getTeamMembers;
-                                return _context.abrupt('return', teamMembers);
+                                result = _ref2.data.emailSubscriptionSignup;
+                                return _context.abrupt('return', result);
 
                             case 5:
                             case 'end':
@@ -76,19 +76,17 @@ var ZaroClient = function (_ZenttyClient) {
                 }, _callee, this);
             }));
 
-            function getTeamMembers(_x) {
+            function emailSubscriptionSignup(_x) {
                 return _ref.apply(this, arguments);
             }
 
-            return getTeamMembers;
+            return emailSubscriptionSignup;
         }()
     }, {
-        key: 'getTeams',
+        key: 'getTeamMembers',
         value: function () {
-            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-                var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-                var _ref4, teams;
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(params) {
+                var _ref4, teamMembers;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -103,8 +101,8 @@ var ZaroClient = function (_ZenttyClient) {
 
                             case 2:
                                 _ref4 = _context2.sent;
-                                teams = _ref4.data.getTeams;
-                                return _context2.abrupt('return', teams);
+                                teamMembers = _ref4.data.getTeamMembers;
+                                return _context2.abrupt('return', teamMembers);
 
                             case 5:
                             case 'end':
@@ -114,17 +112,19 @@ var ZaroClient = function (_ZenttyClient) {
                 }, _callee2, this);
             }));
 
-            function getTeams() {
+            function getTeamMembers(_x2) {
                 return _ref3.apply(this, arguments);
             }
 
-            return getTeams;
+            return getTeamMembers;
         }()
     }, {
-        key: 'getTeam',
+        key: 'getTeams',
         value: function () {
-            var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(params) {
-                var _ref6, team;
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+                var _ref6, teams;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -139,8 +139,8 @@ var ZaroClient = function (_ZenttyClient) {
 
                             case 2:
                                 _ref6 = _context3.sent;
-                                team = _ref6.data.getTeam;
-                                return _context3.abrupt('return', team);
+                                teams = _ref6.data.getTeams;
+                                return _context3.abrupt('return', teams);
 
                             case 5:
                             case 'end':
@@ -150,14 +150,14 @@ var ZaroClient = function (_ZenttyClient) {
                 }, _callee3, this);
             }));
 
-            function getTeam(_x3) {
+            function getTeams() {
                 return _ref5.apply(this, arguments);
             }
 
-            return getTeam;
+            return getTeams;
         }()
     }, {
-        key: 'createTeam',
+        key: 'getTeam',
         value: function () {
             var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(params) {
                 var _ref8, team;
@@ -167,14 +167,15 @@ var ZaroClient = function (_ZenttyClient) {
                         switch (_context4.prev = _context4.next) {
                             case 0:
                                 _context4.next = 2;
-                                return this.client.mutate({
-                                    mutation: (0, _graphqlTag2.default)(_templateObject4),
+                                return this.client.query({
+                                    fetchPolicy: 'network-only',
+                                    query: (0, _graphqlTag2.default)(_templateObject4),
                                     variables: _extends({}, params)
                                 });
 
                             case 2:
                                 _ref8 = _context4.sent;
-                                team = _ref8.data.createTeam;
+                                team = _ref8.data.getTeam;
                                 return _context4.abrupt('return', team);
 
                             case 5:
@@ -185,17 +186,17 @@ var ZaroClient = function (_ZenttyClient) {
                 }, _callee4, this);
             }));
 
-            function createTeam(_x4) {
+            function getTeam(_x4) {
                 return _ref7.apply(this, arguments);
             }
 
-            return createTeam;
+            return getTeam;
         }()
     }, {
-        key: 'inviteTeamMember',
+        key: 'createTeam',
         value: function () {
             var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(params) {
-                var _ref10, success;
+                var _ref10, team;
 
                 return regeneratorRuntime.wrap(function _callee5$(_context5) {
                     while (1) {
@@ -209,8 +210,8 @@ var ZaroClient = function (_ZenttyClient) {
 
                             case 2:
                                 _ref10 = _context5.sent;
-                                success = _ref10.data.inviteTeamMember;
-                                return _context5.abrupt('return', success);
+                                team = _ref10.data.createTeam;
+                                return _context5.abrupt('return', team);
 
                             case 5:
                             case 'end':
@@ -220,8 +221,43 @@ var ZaroClient = function (_ZenttyClient) {
                 }, _callee5, this);
             }));
 
-            function inviteTeamMember(_x5) {
+            function createTeam(_x5) {
                 return _ref9.apply(this, arguments);
+            }
+
+            return createTeam;
+        }()
+    }, {
+        key: 'inviteTeamMember',
+        value: function () {
+            var _ref11 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(params) {
+                var _ref12, success;
+
+                return regeneratorRuntime.wrap(function _callee6$(_context6) {
+                    while (1) {
+                        switch (_context6.prev = _context6.next) {
+                            case 0:
+                                _context6.next = 2;
+                                return this.client.mutate({
+                                    mutation: (0, _graphqlTag2.default)(_templateObject6),
+                                    variables: _extends({}, params)
+                                });
+
+                            case 2:
+                                _ref12 = _context6.sent;
+                                success = _ref12.data.inviteTeamMember;
+                                return _context6.abrupt('return', success);
+
+                            case 5:
+                            case 'end':
+                                return _context6.stop();
+                        }
+                    }
+                }, _callee6, this);
+            }));
+
+            function inviteTeamMember(_x6) {
+                return _ref11.apply(this, arguments);
             }
 
             return inviteTeamMember;
