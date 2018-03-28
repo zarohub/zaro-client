@@ -27,9 +27,9 @@ class ZaroClient extends ZenttyClient {
         const { data: { getTeamMembers: teamMembers }} = await this.client.query({
             fetchPolicy: 'network-only',
             query: gql`
-                query getTeamMembers($teamID: String!, $offset: Int = 0, $limit: Int = 100) {
+                query getTeamMembers($companyID: String!, $offset: Int = 0, $limit: Int = 100) {
                 	getTeamMembers(
-                	    teamID: $teamID,
+                	    companyID: $companyID,
                 	    offset: $offset,
                 	    limit: $limit
                 	) {
@@ -61,12 +61,12 @@ class ZaroClient extends ZenttyClient {
         return teamMembers;
     }
     
-    async getTeams (params = {}) {
-        const { data: { getTeams: teams }} = await this.client.query({
+    async getCompanies (params = {}) {
+        const { data: { getCompanies: companies }} = await this.client.query({
             fetchPolicy: 'network-only',
             query: gql`
-                query getTeams($offset: Int = 0, $limit: Int = 100, $archived: Boolean = false) {
-                	getTeams(
+                query getCompanies($offset: Int = 0, $limit: Int = 100, $archived: Boolean = false) {
+                	getCompanies(
                 	    offset: $offset,
                 	    limit: $limit,
                 	    archived: $archived
@@ -117,15 +117,15 @@ class ZaroClient extends ZenttyClient {
             }
         });
         
-        return teams;
+        return companies;
     }
     
-    async getTeam (params) {
-        const { data: { getTeam: team }} = await this.client.query({
+    async getCompany (params) {
+        const { data: { getCompany: company }} = await this.client.query({
             fetchPolicy: 'network-only',
             query: gql`
-                query getTeam($id: String!) {
-                	getTeam(
+                query getCompany($id: String!) {
+                	getCompany(
                         id: $id
                 	) {
                         _id
@@ -167,14 +167,14 @@ class ZaroClient extends ZenttyClient {
             }
         });
         
-        return team;
+        return company;
     }
     
-    async createTeam (params) {
-        const { data: { createTeam: team }} = await this.client.mutate({
+    async createCompany (params) {
+        const { data: { createCompany: company }} = await this.client.mutate({
             mutation: gql`
-                mutation createTeam($name: String!) {
-                	createTeam(
+                mutation createCompany($name: String!) {
+                	createCompany(
                 	    name: $name
                 	) {
                 		_id
@@ -216,15 +216,15 @@ class ZaroClient extends ZenttyClient {
             }
         });
         
-        return team;
+        return company;
     }
     
     async inviteTeamMember (params) {
         const { data: { inviteTeamMember: success }} = await this.client.mutate({
             mutation: gql`
-                mutation inviteTeamMember($teamID: String!, $userIdentifier: String!, $role: String!) {
+                mutation inviteTeamMember($companyID: String!, $userIdentifier: String!, $role: String!) {
                 	inviteTeamMember(
-                	    teamID: $teamID,
+                	    companyID: $companyID,
                 	    userIdentifier: $userIdentifier,
                 	    role: $role
                 	)
