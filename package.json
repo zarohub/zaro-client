@@ -1,6 +1,6 @@
 {
   "name": "zaro-client",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Official Zaro JavaScript client",
   "main": "dist/index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
     "graphql-tag": "^2.4.2",
-    "zentty-client": "0.0.11"
+    "zentty-client": "0.0.12"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
